@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_js/flutter_js.dart';
+import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -10,31 +9,39 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final JavascriptRuntime jsRuntime = getJavascriptRuntime(forceJavascriptCoreOnAndroid: false);
+  bool showLive = false;
   @override
   void initState() {
     super.initState();
-    initEngine();
-  }
-
-  initEngine() async {
-    String filterCoreJs = await rootBundle.loadString("assets/js/filter.js");
-    jsRuntime.evaluate("""var window = global = globalThis;""");
-    jsRuntime.evaluate(filterCoreJs);
-    jsRuntime.evaluate("""
-
-console.log(JEELIZFACEFILTERGEN)
-""");
-
-    // ÷print(jsResult.stringResult);
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: const Center(
-        child: Text('Center'),
-      ),
-    );
+    return !showLive
+        ? Center(
+            child: ElevatedButton(
+                onPressed: () {
+                  showLive = true;
+                  setState(() {});
+                },
+                child: Text('Open filter')),
+          )
+        : SafeArea(
+            child: Scaffold(
+              body: InAppWebView(
+                onConsoleMessage: (c, console) {
+                  print(console.message);
+                },
+                onPermissionRequest: (controller, request) async {
+                  return PermissionResponse(resources: request.resources, action: PermissionResponseAction.GRANT);
+                },
+                initialSettings: InAppWebViewSettings(
+                  mediaPlaybackRequiresUserGesture: false,
+                  allowsInlineMediaPlayback: true,
+                ),
+                initialUrlRequest: URLRequest(url: WebUri('https://jeeliz.com/demos/faceFilter/demos/threejs/dog_face/')),
+              ),
+            ),
+          );
   }
 }

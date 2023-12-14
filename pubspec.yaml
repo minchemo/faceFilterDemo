@@ -1,93 +1,298 @@
 name: face_filter
-description: "A new Flutter project."
-# The following line prevents the package from being accidentally published to
-# pub.dev using `flutter pub publish`. This is preferred for private packages.
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
-
-# The following defines the version and build number for your application.
-# A version number is three numbers separated by dots, like 1.2.43
-# followed by an optional build number separated by a +.
-# Both the version and the builder number may be overridden in flutter
-# build by specifying --build-name and --build-number, respectively.
-# In Android, build-name is used as versionName while build-number used as versionCode.
-# Read more about Android versioning at https://developer.android.com/studio/publish/versioning
-# In iOS, build-name is used as CFBundleShortVersionString while build-number is used as CFBundleVersion.
-# Read more about iOS versioning at
-# https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
-# In Windows, build-name is used as the major, minor, and patch parts
-# of the product and file versions while build-number is used as the build suffix.
+description: A new Flutter project.
+publish_to: none
 version: 1.0.0+1
-
 environment:
   sdk: '>=3.2.0 <4.0.0'
-
-# Dependencies specify other packages that your package needs in order to work.
-# To automatically upgrade your package dependencies to the latest versions
-# consider running `flutter pub upgrade --major-versions`. Alternatively,
-# dependencies can be manually updated by changing the version numbers below to
-# the latest version available on pub.dev. To see which dependencies have newer
-# versions available, run `flutter pub outdated`.
 dependencies:
   flutter:
     sdk: flutter
-
-
-  # The following adds the Cupertino Icons font to your application.
-  # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
-  flutter_js: ^0.8.0
-
+  webview_flutter: ^4.4.2
+  permission_handler: ^11.1.0
+  flutter_inappwebview: ^6.0.0-beta.31
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
-  # The "flutter_lints" package below contains a set of recommended lints to
-  # encourage good coding practices. The lint set provided by the package is
-  # activated in the `analysis_options.yaml` file located at the root of your
-  # package. See that file for information about deactivating specific lint
-  # rules and activating additional ones.
   flutter_lints: ^2.0.0
-
-# For information on the generic Dart part of this file, see the
-# following page: https://dart.dev/tools/pub/pubspec
-
-# The following section is specific to Flutter packages.
 flutter:
-
-  # The following line ensures that the Material Icons font is
-  # included with your application, so that you can use the icons in
-  # the material Icons class.
   uses-material-design: true
-
-  # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/
-    - assets/js/
-  #   - images/a_dot_burr.jpeg
-  #   - images/a_dot_ham.jpeg
-
-  # An image asset can refer to one or more resolution-specific "variants", see
-  # https://flutter.dev/assets-and-images/#resolution-aware
-
-  # For details regarding adding assets from package dependencies, see
-  # https://flutter.dev/assets-and-images/#from-packages
-
-  # To add custom fonts to your application, add a fonts section here,
-  # in this "flutter" section. Each entry in this list should have a
-  # "family" key with the font family name, and a "fonts" key with a
-  # list giving the asset and other descriptors for the font. For
-  # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
-  #         style: italic
-  #   - family: Trajan Pro
-  #     fonts:
-  #       - asset: fonts/TrajanPro.ttf
-  #       - asset: fonts/TrajanPro_Bold.ttf
-  #         weight: 700
-  #
-  # For details regarding fonts from package dependencies,
-  # see https://flutter.dev/custom-fonts/#from-packages
+  - assets/images/texture_pink.jpg
+  - assets/images/texture_white.jpg
+  - assets/libs/cesium/Assets/Images/bing_maps_credit.png
+  - assets/libs/cesium/Assets/Images/cesium_credit.png
+  - assets/libs/cesium/Assets/Images/google_earth_credit.png
+  - assets/libs/cesium/Assets/Images/ion-credit.png
+  - assets/libs/cesium/Assets/Textures/LensFlare/DirtMask.jpg
+  - assets/libs/cesium/Assets/Textures/LensFlare/StarBurst.jpg
+  - assets/libs/cesium/Assets/Textures/NaturalEarthII/0/0/0.jpg
+  - assets/libs/cesium/Assets/Textures/NaturalEarthII/0/1/0.jpg
+  - assets/libs/cesium/Assets/Textures/NaturalEarthII/1/0/0.jpg
+  - assets/libs/cesium/Assets/Textures/NaturalEarthII/1/0/1.jpg
+  - assets/libs/cesium/Assets/Textures/NaturalEarthII/1/1/0.jpg
+  - assets/libs/cesium/Assets/Textures/NaturalEarthII/1/1/1.jpg
+  - assets/libs/cesium/Assets/Textures/NaturalEarthII/1/2/0.jpg
+  - assets/libs/cesium/Assets/Textures/NaturalEarthII/1/2/1.jpg
+  - assets/libs/cesium/Assets/Textures/NaturalEarthII/1/3/0.jpg
+  - assets/libs/cesium/Assets/Textures/NaturalEarthII/1/3/1.jpg
+  - assets/libs/cesium/Assets/Textures/NaturalEarthII/2/0/0.jpg
+  - assets/libs/cesium/Assets/Textures/NaturalEarthII/2/0/1.jpg
+  - assets/libs/cesium/Assets/Textures/NaturalEarthII/2/0/2.jpg
+  - assets/libs/cesium/Assets/Textures/NaturalEarthII/2/0/3.jpg
+  - assets/libs/cesium/Assets/Textures/NaturalEarthII/2/1/0.jpg
+  - assets/libs/cesium/Assets/Textures/NaturalEarthII/2/1/1.jpg
+  - assets/libs/cesium/Assets/Textures/NaturalEarthII/2/1/2.jpg
+  - assets/libs/cesium/Assets/Textures/NaturalEarthII/2/1/3.jpg
+  - assets/libs/cesium/Assets/Textures/NaturalEarthII/2/2/0.jpg
+  - assets/libs/cesium/Assets/Textures/NaturalEarthII/2/2/1.jpg
+  - assets/libs/cesium/Assets/Textures/NaturalEarthII/2/2/2.jpg
+  - assets/libs/cesium/Assets/Textures/NaturalEarthII/2/2/3.jpg
+  - assets/libs/cesium/Assets/Textures/NaturalEarthII/2/3/0.jpg
+  - assets/libs/cesium/Assets/Textures/NaturalEarthII/2/3/1.jpg
+  - assets/libs/cesium/Assets/Textures/NaturalEarthII/2/3/2.jpg
+  - assets/libs/cesium/Assets/Textures/NaturalEarthII/2/3/3.jpg
+  - assets/libs/cesium/Assets/Textures/NaturalEarthII/2/4/0.jpg
+  - assets/libs/cesium/Assets/Textures/NaturalEarthII/2/4/1.jpg
+  - assets/libs/cesium/Assets/Textures/NaturalEarthII/2/4/2.jpg
+  - assets/libs/cesium/Assets/Textures/NaturalEarthII/2/4/3.jpg
+  - assets/libs/cesium/Assets/Textures/NaturalEarthII/2/5/0.jpg
+  - assets/libs/cesium/Assets/Textures/NaturalEarthII/2/5/1.jpg
+  - assets/libs/cesium/Assets/Textures/NaturalEarthII/2/5/2.jpg
+  - assets/libs/cesium/Assets/Textures/NaturalEarthII/2/5/3.jpg
+  - assets/libs/cesium/Assets/Textures/NaturalEarthII/2/6/0.jpg
+  - assets/libs/cesium/Assets/Textures/NaturalEarthII/2/6/1.jpg
+  - assets/libs/cesium/Assets/Textures/NaturalEarthII/2/6/2.jpg
+  - assets/libs/cesium/Assets/Textures/NaturalEarthII/2/6/3.jpg
+  - assets/libs/cesium/Assets/Textures/NaturalEarthII/2/7/0.jpg
+  - assets/libs/cesium/Assets/Textures/NaturalEarthII/2/7/1.jpg
+  - assets/libs/cesium/Assets/Textures/NaturalEarthII/2/7/2.jpg
+  - assets/libs/cesium/Assets/Textures/NaturalEarthII/2/7/3.jpg
+  - assets/libs/cesium/Assets/Textures/SkyBox/tycho2t3_80_mx.jpg
+  - assets/libs/cesium/Assets/Textures/SkyBox/tycho2t3_80_my.jpg
+  - assets/libs/cesium/Assets/Textures/SkyBox/tycho2t3_80_mz.jpg
+  - assets/libs/cesium/Assets/Textures/SkyBox/tycho2t3_80_px.jpg
+  - assets/libs/cesium/Assets/Textures/SkyBox/tycho2t3_80_py.jpg
+  - assets/libs/cesium/Assets/Textures/SkyBox/tycho2t3_80_pz.jpg
+  - assets/libs/cesium/Assets/Textures/maki/airfield.png
+  - assets/libs/cesium/Assets/Textures/maki/airport.png
+  - assets/libs/cesium/Assets/Textures/maki/alcohol-shop.png
+  - assets/libs/cesium/Assets/Textures/maki/america-football.png
+  - assets/libs/cesium/Assets/Textures/maki/art-gallery.png
+  - assets/libs/cesium/Assets/Textures/maki/bakery.png
+  - assets/libs/cesium/Assets/Textures/maki/bank.png
+  - assets/libs/cesium/Assets/Textures/maki/bar.png
+  - assets/libs/cesium/Assets/Textures/maki/baseball.png
+  - assets/libs/cesium/Assets/Textures/maki/basketball.png
+  - assets/libs/cesium/Assets/Textures/maki/beer.png
+  - assets/libs/cesium/Assets/Textures/maki/bicycle.png
+  - assets/libs/cesium/Assets/Textures/maki/building.png
+  - assets/libs/cesium/Assets/Textures/maki/bus.png
+  - assets/libs/cesium/Assets/Textures/maki/cafe.png
+  - assets/libs/cesium/Assets/Textures/maki/camera.png
+  - assets/libs/cesium/Assets/Textures/maki/campsite.png
+  - assets/libs/cesium/Assets/Textures/maki/car.png
+  - assets/libs/cesium/Assets/Textures/maki/cemetery.png
+  - assets/libs/cesium/Assets/Textures/maki/cesium.png
+  - assets/libs/cesium/Assets/Textures/maki/chemist.png
+  - assets/libs/cesium/Assets/Textures/maki/cinema.png
+  - assets/libs/cesium/Assets/Textures/maki/circle-stroked.png
+  - assets/libs/cesium/Assets/Textures/maki/circle.png
+  - assets/libs/cesium/Assets/Textures/maki/city.png
+  - assets/libs/cesium/Assets/Textures/maki/clothing-store.png
+  - assets/libs/cesium/Assets/Textures/maki/college.png
+  - assets/libs/cesium/Assets/Textures/maki/commercial.png
+  - assets/libs/cesium/Assets/Textures/maki/cricket.png
+  - assets/libs/cesium/Assets/Textures/maki/cross.png
+  - assets/libs/cesium/Assets/Textures/maki/dam.png
+  - assets/libs/cesium/Assets/Textures/maki/danger.png
+  - assets/libs/cesium/Assets/Textures/maki/disability.png
+  - assets/libs/cesium/Assets/Textures/maki/dog-park.png
+  - assets/libs/cesium/Assets/Textures/maki/embassy.png
+  - assets/libs/cesium/Assets/Textures/maki/emergency-telephone.png
+  - assets/libs/cesium/Assets/Textures/maki/entrance.png
+  - assets/libs/cesium/Assets/Textures/maki/farm.png
+  - assets/libs/cesium/Assets/Textures/maki/fast-food.png
+  - assets/libs/cesium/Assets/Textures/maki/ferry.png
+  - assets/libs/cesium/Assets/Textures/maki/fire-station.png
+  - assets/libs/cesium/Assets/Textures/maki/fuel.png
+  - assets/libs/cesium/Assets/Textures/maki/garden.png
+  - assets/libs/cesium/Assets/Textures/maki/gift.png
+  - assets/libs/cesium/Assets/Textures/maki/golf.png
+  - assets/libs/cesium/Assets/Textures/maki/grocery.png
+  - assets/libs/cesium/Assets/Textures/maki/hairdresser.png
+  - assets/libs/cesium/Assets/Textures/maki/harbor.png
+  - assets/libs/cesium/Assets/Textures/maki/heart.png
+  - assets/libs/cesium/Assets/Textures/maki/heliport.png
+  - assets/libs/cesium/Assets/Textures/maki/hospital.png
+  - assets/libs/cesium/Assets/Textures/maki/ice-cream.png
+  - assets/libs/cesium/Assets/Textures/maki/industrial.png
+  - assets/libs/cesium/Assets/Textures/maki/land-use.png
+  - assets/libs/cesium/Assets/Textures/maki/laundry.png
+  - assets/libs/cesium/Assets/Textures/maki/library.png
+  - assets/libs/cesium/Assets/Textures/maki/lighthouse.png
+  - assets/libs/cesium/Assets/Textures/maki/lodging.png
+  - assets/libs/cesium/Assets/Textures/maki/logging.png
+  - assets/libs/cesium/Assets/Textures/maki/london-underground.png
+  - assets/libs/cesium/Assets/Textures/maki/marker-stroked.png
+  - assets/libs/cesium/Assets/Textures/maki/marker.png
+  - assets/libs/cesium/Assets/Textures/maki/minefield.png
+  - assets/libs/cesium/Assets/Textures/maki/mobilephone.png
+  - assets/libs/cesium/Assets/Textures/maki/monument.png
+  - assets/libs/cesium/Assets/Textures/maki/museum.png
+  - assets/libs/cesium/Assets/Textures/maki/music.png
+  - assets/libs/cesium/Assets/Textures/maki/oil-well.png
+  - assets/libs/cesium/Assets/Textures/maki/park.png
+  - assets/libs/cesium/Assets/Textures/maki/park2.png
+  - assets/libs/cesium/Assets/Textures/maki/parking-garage.png
+  - assets/libs/cesium/Assets/Textures/maki/parking.png
+  - assets/libs/cesium/Assets/Textures/maki/pharmacy.png
+  - assets/libs/cesium/Assets/Textures/maki/pitch.png
+  - assets/libs/cesium/Assets/Textures/maki/place-of-worship.png
+  - assets/libs/cesium/Assets/Textures/maki/playground.png
+  - assets/libs/cesium/Assets/Textures/maki/police.png
+  - assets/libs/cesium/Assets/Textures/maki/polling-place.png
+  - assets/libs/cesium/Assets/Textures/maki/post.png
+  - assets/libs/cesium/Assets/Textures/maki/prison.png
+  - assets/libs/cesium/Assets/Textures/maki/rail-above.png
+  - assets/libs/cesium/Assets/Textures/maki/rail-light.png
+  - assets/libs/cesium/Assets/Textures/maki/rail-metro.png
+  - assets/libs/cesium/Assets/Textures/maki/rail-underground.png
+  - assets/libs/cesium/Assets/Textures/maki/rail.png
+  - assets/libs/cesium/Assets/Textures/maki/religious-christian.png
+  - assets/libs/cesium/Assets/Textures/maki/religious-jewish.png
+  - assets/libs/cesium/Assets/Textures/maki/religious-muslim.png
+  - assets/libs/cesium/Assets/Textures/maki/restaurant.png
+  - assets/libs/cesium/Assets/Textures/maki/roadblock.png
+  - assets/libs/cesium/Assets/Textures/maki/rocket.png
+  - assets/libs/cesium/Assets/Textures/maki/school.png
+  - assets/libs/cesium/Assets/Textures/maki/scooter.png
+  - assets/libs/cesium/Assets/Textures/maki/shop.png
+  - assets/libs/cesium/Assets/Textures/maki/skiing.png
+  - assets/libs/cesium/Assets/Textures/maki/slaughterhouse.png
+  - assets/libs/cesium/Assets/Textures/maki/soccer.png
+  - assets/libs/cesium/Assets/Textures/maki/square-stroked.png
+  - assets/libs/cesium/Assets/Textures/maki/square.png
+  - assets/libs/cesium/Assets/Textures/maki/star-stroked.png
+  - assets/libs/cesium/Assets/Textures/maki/star.png
+  - assets/libs/cesium/Assets/Textures/maki/suitcase.png
+  - assets/libs/cesium/Assets/Textures/maki/swimming.png
+  - assets/libs/cesium/Assets/Textures/maki/telephone.png
+  - assets/libs/cesium/Assets/Textures/maki/tennis.png
+  - assets/libs/cesium/Assets/Textures/maki/theatre.png
+  - assets/libs/cesium/Assets/Textures/maki/toilets.png
+  - assets/libs/cesium/Assets/Textures/maki/town-hall.png
+  - assets/libs/cesium/Assets/Textures/maki/town.png
+  - assets/libs/cesium/Assets/Textures/maki/triangle-stroked.png
+  - assets/libs/cesium/Assets/Textures/maki/triangle.png
+  - assets/libs/cesium/Assets/Textures/maki/village.png
+  - assets/libs/cesium/Assets/Textures/maki/warehouse.png
+  - assets/libs/cesium/Assets/Textures/maki/waste-basket.png
+  - assets/libs/cesium/Assets/Textures/maki/water.png
+  - assets/libs/cesium/Assets/Textures/maki/wetland.png
+  - assets/libs/cesium/Assets/Textures/maki/zoo.png
+  - assets/libs/cesium/Assets/Textures/moonSmall.jpg
+  - assets/libs/cesium/Assets/Textures/pin.svg
+  - assets/libs/cesium/Assets/Textures/waterNormals.jpg
+  - assets/libs/cesium/Assets/Textures/waterNormalsSmall.jpg
+  - assets/libs/cesium/Widgets/Images/ImageryProviders/bingAerial.png
+  - assets/libs/cesium/Widgets/Images/ImageryProviders/bingAerialLabels.png
+  - assets/libs/cesium/Widgets/Images/ImageryProviders/bingRoads.png
+  - assets/libs/cesium/Widgets/Images/ImageryProviders/blueMarble.png
+  - assets/libs/cesium/Widgets/Images/ImageryProviders/earthAtNight.png
+  - assets/libs/cesium/Widgets/Images/ImageryProviders/esriNationalGeographic.png
+  - assets/libs/cesium/Widgets/Images/ImageryProviders/esriWorldImagery.png
+  - assets/libs/cesium/Widgets/Images/ImageryProviders/esriWorldStreetMap.png
+  - assets/libs/cesium/Widgets/Images/ImageryProviders/mapQuestOpenStreetMap.png
+  - assets/libs/cesium/Widgets/Images/ImageryProviders/mapboxSatellite.png
+  - assets/libs/cesium/Widgets/Images/ImageryProviders/mapboxStreets.png
+  - assets/libs/cesium/Widgets/Images/ImageryProviders/mapboxTerrain.png
+  - assets/libs/cesium/Widgets/Images/ImageryProviders/naturalEarthII.png
+  - assets/libs/cesium/Widgets/Images/ImageryProviders/openStreetMap.png
+  - assets/libs/cesium/Widgets/Images/ImageryProviders/sentinel-2.png
+  - assets/libs/cesium/Widgets/Images/ImageryProviders/stamenToner.png
+  - assets/libs/cesium/Widgets/Images/ImageryProviders/stamenWatercolor.png
+  - assets/libs/cesium/Widgets/Images/NavigationHelp/Mouse.svg
+  - assets/libs/cesium/Widgets/Images/NavigationHelp/MouseLeft.svg
+  - assets/libs/cesium/Widgets/Images/NavigationHelp/MouseMiddle.svg
+  - assets/libs/cesium/Widgets/Images/NavigationHelp/MouseRight.svg
+  - assets/libs/cesium/Widgets/Images/NavigationHelp/Touch.svg
+  - assets/libs/cesium/Widgets/Images/NavigationHelp/TouchDrag.svg
+  - assets/libs/cesium/Widgets/Images/NavigationHelp/TouchRotate.svg
+  - assets/libs/cesium/Widgets/Images/NavigationHelp/TouchTilt.svg
+  - assets/libs/cesium/Widgets/Images/NavigationHelp/TouchZoom.svg
+  - assets/libs/cesium/Widgets/Images/TerrainProviders/CesiumWorldTerrain.png
+  - assets/libs/cesium/Widgets/Images/TerrainProviders/Ellipsoid.png
+  - assets/libs/cesium/Widgets/Images/TimelineIcons.png
+  - assets/libs/cesium/Widgets/Images/info-loading.gif
+  - assets/libs/slickCarousel/v1_9/ajax-loader.gif
+  - assets/models/dog/alpha_ears.jpg
+  - assets/models/dog/alpha_ears_1024.jpg
+  - assets/models/dog/alpha_ears_256.jpg
+  - assets/models/dog/displace_nez.jpg
+  - assets/models/dog/displace_oreilles.jpg
+  - assets/models/dog/dog_tongue.jpg
+  - assets/models/dog/flex_ears.jpg
+  - assets/models/dog/flex_ears_1024.jpg
+  - assets/models/dog/flex_ears_256.jpg
+  - assets/models/dog/flex_nose.png
+  - assets/models/dog/flex_tongue.png
+  - assets/models/dog/flex_tongue_1024.png
+  - assets/models/dog/flex_tongue_256.png
+  - assets/models/dog/normal_ears.jpg
+  - assets/models/dog/normal_nose.jpg
+  - assets/models/dog/texture_ears.jpg
+  - assets/models/dog/texture_nose.jpg
+  - assets/models/dog/tongue_alpha.jpg
+  - assets/models/dog/tongue_alpha_1024.jpg
+  - assets/models/dog/tongue_alpha_256.jpg
+  - assets/libs/babylonjs/v3_1/readme.txt
+  - assets/libs/cesium/Assets/IAU2006_XYS/IAU2006_XYS_0.json
+  - assets/libs/cesium/Assets/IAU2006_XYS/IAU2006_XYS_1.json
+  - assets/libs/cesium/Assets/IAU2006_XYS/IAU2006_XYS_10.json
+  - assets/libs/cesium/Assets/IAU2006_XYS/IAU2006_XYS_11.json
+  - assets/libs/cesium/Assets/IAU2006_XYS/IAU2006_XYS_12.json
+  - assets/libs/cesium/Assets/IAU2006_XYS/IAU2006_XYS_13.json
+  - assets/libs/cesium/Assets/IAU2006_XYS/IAU2006_XYS_14.json
+  - assets/libs/cesium/Assets/IAU2006_XYS/IAU2006_XYS_15.json
+  - assets/libs/cesium/Assets/IAU2006_XYS/IAU2006_XYS_16.json
+  - assets/libs/cesium/Assets/IAU2006_XYS/IAU2006_XYS_17.json
+  - assets/libs/cesium/Assets/IAU2006_XYS/IAU2006_XYS_18.json
+  - assets/libs/cesium/Assets/IAU2006_XYS/IAU2006_XYS_19.json
+  - assets/libs/cesium/Assets/IAU2006_XYS/IAU2006_XYS_2.json
+  - assets/libs/cesium/Assets/IAU2006_XYS/IAU2006_XYS_20.json
+  - assets/libs/cesium/Assets/IAU2006_XYS/IAU2006_XYS_21.json
+  - assets/libs/cesium/Assets/IAU2006_XYS/IAU2006_XYS_22.json
+  - assets/libs/cesium/Assets/IAU2006_XYS/IAU2006_XYS_23.json
+  - assets/libs/cesium/Assets/IAU2006_XYS/IAU2006_XYS_24.json
+  - assets/libs/cesium/Assets/IAU2006_XYS/IAU2006_XYS_25.json
+  - assets/libs/cesium/Assets/IAU2006_XYS/IAU2006_XYS_26.json
+  - assets/libs/cesium/Assets/IAU2006_XYS/IAU2006_XYS_27.json
+  - assets/libs/cesium/Assets/IAU2006_XYS/IAU2006_XYS_3.json
+  - assets/libs/cesium/Assets/IAU2006_XYS/IAU2006_XYS_4.json
+  - assets/libs/cesium/Assets/IAU2006_XYS/IAU2006_XYS_5.json
+  - assets/libs/cesium/Assets/IAU2006_XYS/IAU2006_XYS_6.json
+  - assets/libs/cesium/Assets/IAU2006_XYS/IAU2006_XYS_7.json
+  - assets/libs/cesium/Assets/IAU2006_XYS/IAU2006_XYS_8.json
+  - assets/libs/cesium/Assets/IAU2006_XYS/IAU2006_XYS_9.json
+  - assets/libs/cesium/Assets/Textures/NaturalEarthII/tilemapresource.xml
+  - assets/libs/cesium/Assets/approximateTerrainHeights.json
+  - assets/libs/three/matrix/readme.txt
+  - assets/models/dog/dog_ears.json
+  - assets/models/dog/dog_nose.json
+  - assets/models/dog/dog_tongue.json
+  - assets/neuralNets/NN_4EXPR_1.json
+  - assets/neuralNets/NN_4EXPR_2.json
+  - assets/neuralNets/NN_4EXPR_3.json
+  - assets/neuralNets/NN_DEFAULT.json
+  - assets/neuralNets/NN_LIGHT_1.json
+  - assets/neuralNets/NN_STANDARD_1.json
+  - assets/neuralNets/NN_STANDARD_2.json
+  - assets/neuralNets/NN_VERYLIGHT_1.json
+  - assets/neuralNets/deprecated/NN_4EXPR_0.json
+  - assets/neuralNets/deprecated/NN_INTEL1536.json
+  - assets/neuralNets/deprecated/NN_LIGHT_0.json
+  - assets/neuralNets/deprecated/NN_VERYLIGHT_0.json
+  - assets/neuralNets/deprecated/NN_VIEWTOP_0.json
+  - assets/neuralNets/deprecated/NN_WIDEANGLES_0.json
+  - assets/
